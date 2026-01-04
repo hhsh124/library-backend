@@ -48,9 +48,8 @@ public class BorrowService {
         record.setUser(user);
         record.setBorrowDate(LocalDateTime.now());
 
-        // 👇👇👇 核心修改：为了测试逾期效果，暂时设为 1 分钟后到期
-        // 测试完毕后，请改回：record.setDueDate(LocalDateTime.now().plusDays(15));
-        record.setDueDate(LocalDateTime.now().plusMinutes(1));
+        // 👇👇👇 改回来了：默认借阅 15 天
+        record.setDueDate(LocalDateTime.now().plusDays(15));
 
         borrowRecordRepository.save(record);
 
